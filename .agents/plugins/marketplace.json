@@ -1,0 +1,21 @@
+{
+  "name": "launchify-skills",
+  "interface": {
+    "displayName": "Launchify Skills",
+    "description": "Production-readiness skill suite for security, cleanup, features, and remediation"
+  },
+  "plugins": [
+    {
+      "name": "launchify",
+      "source": {
+        "source": "github",
+        "url": "https://github.com/jacobpowaza/launchify-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Security"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "launchify",
+  "displayName": "Launchify",
+  "version": "1.0.0",
+  "description": "Production-readiness skill suite — 58 commands for security auditing, cleanup, feature analysis, and remediation across 24 security categories",
+  "author": {
+    "name": "jacobpowaza",
+    "url": "https://github.com/jacobpowaza"
+  },
+  "homepage": "https://github.com/jacobpowaza/launchify-skills",
+  "repository": "https://github.com/jacobpowaza/launchify-skills",
+  "license": "MIT",
+  "keywords": [
+    "security",
+    "production-readiness",
+    "audit",
+    "remediation",
+    "vulnerability",
+    "hardening",
+    "devsecops",
+    "code-quality",
+    "cleanup",
+    "feature-audit"
+  ],
+  "skills": "./skills/"
+}

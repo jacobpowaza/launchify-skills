@@ -6,52 +6,105 @@
 
 ## Scope
 
-Inspect all cloud configurations, IAM policies, network settings, storage configurations, and cloud-specific security controls across AWS, GCP, Azure, and other cloud providers.
+Inspect all cloud configurations, IAM policies, network settings, storage configurations, metadata endpoint protections, and cloud-specific security controls across AWS, GCP, Azure, and other cloud providers.
 
 ---
 
 ## Checks
 
-### IAM
-- Overprivileged cloud IAM
-- Wildcard actions and resources
+### IAM (Identity and Access Management)
+- Overprivileged cloud IAM roles (AWS/GCP/Azure)
+- Wildcard actions (`"Action": "*"`) in IAM policies
+- Wildcard resources (`"Resource": "*"`) in IAM policies
 - Administrator policies attached to workloads
-- Shared service accounts
-- Long-lived access keys
-- Missing workload identity
-- Missing least privilege
-- Excessive cross-account/project/subscription access
-- Privileged CI/CD and developer identities
+- Shared service accounts across multiple services
+- Long-lived access keys (IAM user keys instead of role assumption)
+- Missing workload identity (GCP Workload Identity, AWS IAM Roles for Service Accounts)
+- Missing least privilege principle
+- Excessive cross-account / cross-project / cross-subscription access
+- Privileged CI/CD identities with production access
+- Privileged developer identities with production access
 - Unused IAM roles and stale bindings
-- Missing permission boundaries and separation of duties
-- Missing access reviews and MFA for privileged users
+- Missing permission boundaries
+- Missing separation of duties
+- Missing access reviews
+- Missing MFA for privileged users
 - Cloud credentials available to untrusted workloads
+- Service accounts able to modify security controls
+- Roles able to read secrets or modify production infrastructure unnecessarily
+- IAM policies not version-controlled
+- Missing IAM audit logging
+- Missing IAM drift detection
 
-### Storage
-- Public S3 buckets or equivalent
-- Unencrypted storage
-- Missing access logging on storage
-- Missing lifecycle policies
-- Public snapshots
+### Storage Security
+- Public S3 buckets (or equivalent: GCP Storage, Azure Blob)
+- Unencrypted storage (missing server-side encryption)
+- Missing access logging on storage buckets
+- Missing lifecycle policies (old data never cleaned up)
+- Public snapshots (RDS, ElastiCache)
+- Public EBS volumes
+- Missing bucket policies
+- Missing object-level permissions
+- Storage accessible from untrusted networks
+- Missing versioning on critical buckets
+- Missing object lock for compliance data
 
 ### Networking
-- Missing private endpoints
-- Unrestricted outbound access
-- Publicly accessible databases, queues, admin tools
+- Missing private endpoints for services
+- Unrestricted outbound access from workloads
+- Publicly accessible databases
+- Publicly accessible queues (SQS, RabbitMQ, etc.)
+- Publicly accessible admin tools
 - Missing network segmentation
-- Flat VPC/VNet design
+- Flat VPC/VNet design (no public/private subnet separation)
 - Missing egress controls
+- Unrestricted east-west traffic
+- Missing service-to-service network policies
+- Missing security groups with least privilege
+- Missing NACLs or firewall rules
+- Missing network flow logs
+- Missing DNS security (DNSSEC)
 
-### Compute
-- Instances with excessive permissions
-- Missing instance metadata protections
+### Compute Security
+- Instances with excessive permissions (attached IAM roles)
+- Missing instance metadata protections (IMDSv1)
 - Public-facing instances without bastion
 - Missing IMDSv2 enforcement
+- Instances with public IP addresses without justification
+- Missing instance hardening
+- Missing CIS benchmark compliance
+- Missing host-based firewall
+- Instances with unnecessary services running
+
+### Cloud Metadata Endpoints
+- Exposed cloud metadata endpoints (169.254.169.254)
+- SSRF paths to AWS IMDS
+- Missing IMDSv2 enforcement
+- Metadata access from containers
+- Metadata access from serverless functions
+- Metadata access from browser-controlled URLs
+- Cloud credential theft through metadata services
+- Missing metadata endpoint network restrictions
+- Workloads with unnecessary metadata access
 
 ### Logging and Monitoring
-- Missing cloud audit-log collection
-- Missing cloud configuration scanning
-- Missing cloud monitoring
+- Missing cloud audit-log collection (CloudTrail, Audit Logs, Activity Log)
+- Missing cloud configuration scanning (AWS Config, GCP Config Validator)
+- Missing cloud monitoring (CloudWatch, Stackdriver, Azure Monitor)
+- Missing access logging on sensitive operations
+- Missing alerting on security-relevant events
+- Missing log retention policies
+- Missing log integrity controls
+
+### Secrets Management
+- Secrets stored in environment variables without secret manager
+- Secrets in cloud configuration files
+- Secrets in Lambda/Azure Functions/Cloud Function environment variables
+- Secrets in EC2 user-data
+- Missing secret rotation
+- Missing secret access auditing
+- Excessive secret access permissions
+- Secrets copied between environments
 
 ---
 
@@ -67,6 +120,8 @@ Inspect all cloud configurations, IAM policies, network settings, storage config
 8. Check for long-lived credentials and access keys
 9. Verify workload identity is used where available
 10. Review cloud-specific security best practices for the provider
+11. Check metadata endpoint protections
+12. Verify secret management follows best practices
 
 ---
 
@@ -76,8 +131,10 @@ Inspect all cloud configurations, IAM policies, network settings, storage config
 |---|---|
 | Public S3 bucket with sensitive data | CRITICAL |
 | IAM role with admin privileges on production workload | CRITICAL |
+| Cloud credential theft through metadata endpoint | CRITICAL |
 | Missing IMDSv2 enforcement | HIGH |
 | Long-lived access keys for CI/CD | HIGH |
+| Database publicly accessible | HIGH |
 | Missing cloud audit logging | MEDIUM |
 | Unused IAM role | LOW |
 

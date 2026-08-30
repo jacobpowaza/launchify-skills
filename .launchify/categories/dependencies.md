@@ -6,55 +6,66 @@
 
 ## Scope
 
-Inspect all dependencies, package manifests, lockfiles, transitive dependencies, and supply-chain security controls.
+Inspect all dependencies, package manifests, lockfiles, transitive dependencies, and supply-chain security controls. Dependencies are the most common vector for supply chain attacks.
 
 ---
 
 ## Checks
 
 ### Vulnerable Dependencies
-- Vulnerable dependencies
-- Outdated dependencies
-- Abandoned packages
+- Vulnerable dependencies (known CVEs)
+- Outdated dependencies with known vulnerabilities
+- Abandoned packages (no maintainer)
 - Packages with known malicious maintainers or releases
+- Transitive dependencies with vulnerabilities
+- Dependencies with critical severity CVEs
+- Dependencies with high severity CVEs
+- Dependencies with known exploit code available
 
 ### Supply Chain
-- Malicious packages
-- Unpinned dependencies
+- Malicious packages (typosquatting, dependency confusion)
+- Unpinned dependencies (no version constraint)
 - Untrusted build actions
 - Compromised CI/CD dependencies
-- Dependency confusion
-- Typosquatting
-- Install-script risk
+- Dependency confusion (private package name collision with public)
+- Typosquatting (package names similar to popular packages)
+- Install-script risk (postinstall scripts in dependencies)
 - Build-time code execution
 - Runtime package installation
 - Untrusted plugins
 - Unverified container images
+- Malicious npm/pip/cargo packages
+- Compromised package maintainer accounts
+- Backdoored dependencies
 
 ### Verification
-- Missing dependency scanning
+- Missing dependency scanning in CI/CD
 - Missing SCA (Software Composition Analysis)
 - Missing SBOM generation
-- Missing lockfiles
-- Lockfile drift
+- Missing lockfiles (package-lock.json, yarn.lock, go.sum, Cargo.lock)
+- Lockfile drift (lockfile doesn't match manifest)
 - Multiple conflicting versions
 - Unsigned artifacts where appropriate
 - Unverified package registries
 - Missing provenance attestations
 - Missing dependency update monitoring
+- Missing Dependabot/Renovate configuration
+- Missing license compliance checking
 
 ### Integration Risks
 - Unsafe third-party integrations
 - Malicious AI models
 - Compromised model downloads
 - Unreviewed transitive dependencies
+- Dependencies with excessive permissions
+- Dependencies with unnecessary capabilities
 
 ---
 
 ## Methodology
 
 1. Inspect all package manifests (package.json, requirements.txt, go.mod, Cargo.toml, etc.)
-2. Run dependency auditing tools
+2. Run dependency auditing tools (npm audit, cargo audit, pip audit)
 3. Check for known vulnerabilities in dependencies
 4. Verify lockfiles exist and are consistent with manifests
 5. Check for unpinned dependencies
@@ -63,6 +74,8 @@ Inspect all dependencies, package manifests, lockfiles, transitive dependencies,
 8. Verify dependency scanning is in CI/CD pipeline
 9. Check for SBOM generation
 10. Verify container base images are from trusted sources
+11. Check for dependency update automation
+12. Verify license compliance
 
 ---
 

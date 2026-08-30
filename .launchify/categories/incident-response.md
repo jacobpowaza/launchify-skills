@@ -6,7 +6,7 @@
 
 ## Scope
 
-Inspect incident response planning, procedures, escalation, and operational readiness for security incidents.
+Inspect incident response planning, procedures, escalation, and operational readiness for security incidents. It's not if you'll have an incident, it's when — without preparation, incidents become catastrophes.
 
 ---
 
@@ -19,15 +19,21 @@ Inspect incident response planning, procedures, escalation, and operational read
 - Missing incident ownership
 - Missing security ownership
 - No security owner for critical systems
+- Missing incident classification criteria
+- Missing incident severity levels
+- Missing incident response SLAs
 
 ### Procedures
-- Missing incident runbooks
-- Missing forensic preservation
+- Missing incident runbooks for common scenarios (data breach, DDoS, ransomware, etc.)
+- Missing forensic preservation procedures
 - Missing time synchronization for log correlation
-- Missing post-incident review
+- Missing post-incident review process
 - Missing tabletop exercises
 - Missing customer communication process
-- Missing regulatory notification process
+- Missing regulatory notification process (GDPR 72-hour, CCPA, etc.)
+- Missing chain of custody procedures
+- Missing evidence preservation
+- Missing incident documentation standards
 
 ### Operational Readiness
 - Missing dependency monitoring
@@ -37,6 +43,8 @@ Inspect incident response planning, procedures, escalation, and operational read
 - Missing security metrics
 - Missing security documentation
 - Missing security training
+- Missing security champions program
+- Missing security on-call rotation
 
 ---
 
@@ -52,6 +60,8 @@ Inspect incident response planning, procedures, escalation, and operational read
 8. Check for regulatory notification process
 9. Verify security training is performed
 10. Check for security metrics and reporting
+11. Verify runbooks are tested and up to date
+12. Check for incident response exercises
 
 ---
 
@@ -64,6 +74,7 @@ Inspect incident response planning, procedures, escalation, and operational read
 | Missing breach notification process | MEDIUM |
 | Missing incident runbooks | MEDIUM |
 | Missing post-incident review | LOW |
+| Missing tabletop exercises | LOW |
 
 ---
 
@@ -72,3 +83,4 @@ Inspect incident response planning, procedures, escalation, and operational read
 - Incident response process affected
 - Whether the gap affects incident handling capability
 - Impact on security operations
+- Whether the gap affects regulatory compliance

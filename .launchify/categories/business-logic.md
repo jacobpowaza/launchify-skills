@@ -6,19 +6,23 @@
 
 ## Scope
 
-Inspect all business logic for abuse vectors, workflow bypasses, and integrity violations.
+Inspect all business logic for abuse vectors, workflow bypasses, state machine manipulation, and integrity violations. Business logic bugs don't show up in security scanners — they require business context to identify.
 
 ---
 
 ## Checks
 
 ### Workflow Bypass
-- Workflow bypasses
-- Step skipping
-- State machine manipulation
+- Workflow bypasses (skipping steps in multi-step flows)
+- Step skipping (completing a flow without required intermediate steps)
+- State machine manipulation (forcing invalid state transitions)
 - Race conditions in business flows
 - Incomplete state transitions
 - Invalid state transitions accepted
+- Missing state validation
+- Missing transition guards
+- Missing state machine documentation
+- Workflow order manipulation
 
 ### Data Integrity
 - Business rule enforcement gaps
@@ -26,6 +30,10 @@ Inspect all business logic for abuse vectors, workflow bypasses, and integrity v
 - Client-controlled business logic state
 - Inconsistent business rule enforcement across endpoints
 - Business logic that depends on client-provided order or sequence
+- Missing input validation for business rules
+- Missing output validation for business decisions
+- Inconsistent behavior across API versions
+- Missing audit trail for business decisions
 
 ### Abuse Prevention
 - Missing abuse prevention controls
@@ -33,6 +41,11 @@ Inspect all business logic for abuse vectors, workflow bypasses, and integrity v
 - Missing usage monitoring
 - Missing fraud detection
 - Missing anomaly detection for business operations
+- Missing rate limiting on business operations
+- Missing abuse reporting
+- Missing IP-based abuse detection
+- Missing device-based abuse detection
+- Missing behavioral analysis
 
 ### Entitlement Enforcement
 - Missing entitlement enforcement
@@ -40,6 +53,19 @@ Inspect all business logic for abuse vectors, workflow bypasses, and integrity v
 - Entitlement bypass through concurrent requests
 - Stale entitlement cache
 - Missing entitlement revocation
+- Entitlement not checked on all access paths
+- Entitlement checked client-side only
+- Missing entitlement audit logging
+- Entitlement propagation failures across services
+
+### Account and User Abuse
+- Account creation abuse (mass account creation)
+- Account takeover through business logic
+- Account sharing detection
+- Identity verification bypass
+- KYC (Know Your Customer) bypass
+- Missing age verification where required
+- Missing geographic restrictions where required
 
 ---
 
@@ -55,6 +81,9 @@ Inspect all business logic for abuse vectors, workflow bypasses, and integrity v
 8. Test for concurrent request abuse
 9. Check entitlement cache invalidation
 10. Verify entitlement revocation works
+11. Test for business logic that depends on client-provided values
+12. Verify audit trail for business decisions
+13. Test for inconsistent behavior across endpoints
 
 ---
 
@@ -65,8 +94,11 @@ Inspect all business logic for abuse vectors, workflow bypasses, and integrity v
 | Workflow bypass allowing unauthorized access | CRITICAL |
 | Race condition allowing duplicate entitlement | HIGH |
 | Client-controlled business logic state | HIGH |
-| Missing entitlement revocation | MEDIUM |
+| Missing entitlement enforcement | HIGH |
+| Entitlement bypass through API manipulation | HIGH |
 | Missing abuse prevention | MEDIUM |
+| Missing entitlement revocation | MEDIUM |
+| Stale entitlement cache | MEDIUM |
 
 ---
 
@@ -76,3 +108,4 @@ Inspect all business logic for abuse vectors, workflow bypasses, and integrity v
 - Specific bypass vector
 - Whether the finding allows unauthorized access or entitlement
 - Impact on business integrity
+- Whether the finding allows financial loss

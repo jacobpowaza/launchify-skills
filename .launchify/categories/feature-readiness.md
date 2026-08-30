@@ -6,14 +6,14 @@
 
 ## Scope
 
-Inspect all features for production readiness, completeness, security, reliability, and operational support.
+Inspect all features for production readiness, completeness, security, reliability, and operational support. A feature that isn't production-ready creates support burden, security risk, and user frustration.
 
 ---
 
 ## Checks
 
 ### Completeness
-- Missing error handling
+- Missing error handling on feature endpoints
 - Missing loading states
 - Missing empty states
 - Missing success states
@@ -22,23 +22,29 @@ Inspect all features for production readiness, completeness, security, reliabili
 - Missing confirmation dialogs for destructive actions
 - Missing input validation
 - Missing output validation
+- Missing error messages for users
+- Missing retry behavior for transient failures
 
 ### Security
 - Missing authorization on feature endpoints
 - Missing tenant isolation for multi-tenant features
 - Missing rate limiting on feature endpoints
 - Missing input sanitization
-- Missing CSRF protection
+- Missing CSRF protection on feature forms
 - Missing audit logging for feature actions
+- Missing security headers on feature pages
+- Missing authentication on feature API endpoints
 
 ### Reliability
-- Missing retry behavior
+- Missing retry behavior for external dependencies
 - Missing timeout handling
-- Missing idempotency
+- Missing idempotency on non-idempotent operations
 - Missing rollback behavior
 - Missing error recovery
 - Missing graceful degradation
 - Missing fallback behavior
+- Missing circuit breaker on external calls
+- Missing timeout on database queries
 
 ### Operational Support
 - Missing monitoring for feature usage
@@ -49,6 +55,7 @@ Inspect all features for production readiness, completeness, security, reliabili
 - Missing feature-flag cleanup
 - Missing deployment configuration
 - Missing rollback configuration
+- Missing runbook for feature
 
 ### Accessibility
 - Missing keyboard navigation
@@ -56,6 +63,9 @@ Inspect all features for production readiness, completeness, security, reliabili
 - Missing ARIA attributes
 - Missing color contrast
 - Missing focus management
+- Missing alt text on images
+- Missing form labels
+- Missing error announcements for screen readers
 
 ### Testing
 - Missing unit tests
@@ -63,6 +73,8 @@ Inspect all features for production readiness, completeness, security, reliabili
 - Missing end-to-end tests
 - Missing security regression tests
 - Missing performance tests
+- Missing edge case tests
+- Missing error path tests
 
 ---
 

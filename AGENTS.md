@@ -340,6 +340,8 @@ Generate only reports relevant to the commands that ran:
 - `docs/launchify/production-grade.csv`
 - `docs/launchify/production-branch.md`
 - `docs/launchify/production-branch.csv`
+- `docs/launchify/compliance-report.csv`
+- `docs/launchify/compliance-summary.md`
 
 ---
 
@@ -367,3 +369,55 @@ Read `.launchify/safety.md` before performing any action. Key rules:
 - Preserve unrelated user changes
 - Never automatically rotate secrets
 - Never force push, delete branches, or rewrite history unless explicitly requested
+
+---
+
+## Commands
+
+### `/launchify-security`
+Full security audit and remediation across 24 categories.
+
+### `/launchify-security-audit`
+Full security audit only — no modifications.
+
+### `/launchify-security-{category}`
+Audit and remediate a specific security category (24 categories).
+
+### `/launchify-security-{category}-audit`
+Audit only for a specific category — no modifications.
+
+### `/launchify-cleanup`
+Dead code, duplicates, unused components, AI debris, dependency cleanup.
+
+### `/launchify-cleanup-audit`
+Cleanup analysis only — no modifications.
+
+### `/launchify-feature-audit`
+Trace every feature lifecycle — complete, underbuilt, overbuilt, broken, abandoned.
+
+### `/launchify-feature-audit-fix`
+Audit then safely fix confirmed feature issues.
+
+### `/launchify-verify`
+Build, lint, typecheck, tests, dependency integrity, route availability, API contracts.
+
+### `/launchify-report`
+Generate or refresh reports from latest findings.
+
+### `/launchify-production-grade`
+Score project across 12 dimensions. Letter grade A+ to F.
+
+### `/launchify-production-branch`
+Analyze branch diff against main. Merge readiness verdict.
+
+### `/launchify-compliance`
+Audit all policies and compliance documents.
+
+### `/launchify-compliance-audit`
+Audit only — no modifications.
+
+### `/launchify-landify`
+Run everything: security + cleanup + features + compliance + verify + grade.
+
+### `/launchify-landify-audit`
+Run everything in audit-only mode — no code modifications.

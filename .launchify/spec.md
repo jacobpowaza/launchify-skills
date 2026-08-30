@@ -367,6 +367,35 @@ This command does NOT merge anything. It is read-only.
 
 See `.launchify/production-branch.md` for the complete branch readiness rules.
 
+### Compliance and Policies
+**Command:** `/launchify-compliance`
+
+Audit all legal policies, compliance documents, regulatory requirements, and business disclosures. Check: privacy policy, terms of service, cookie policy, EULA, DPA, DMCA, AUP, security statement, refund policy, SLA, accessibility statement, AI disclosures, and regulatory compliance (GDPR, CCPA, HIPAA, SOC 2, COPPA, PCI DSS).
+
+Verify each policy exists, is linked from the product, contains all required clauses, is current (updated within 12 months), and matches actual data practices in code.
+
+**Command:** `/launchify-compliance-audit`
+
+Audit only — no modifications. Generate report.
+
+### Landify (Everything)
+**Command:** `/launchify-landify`
+
+Run every Launchify command in sequence. Full production readiness assessment in one command:
+
+1. `/launchify-security` — full security audit and remediation across all 24 categories
+2. `/launchify-cleanup` — dead code, duplicates, AI debris, dependency cleanup
+3. `/launchify-feature-audit-fix` — trace every feature, fix confirmed issues
+4. `/launchify-compliance` — audit all policies and compliance documents
+5. `/launchify-verify` — build, lint, typecheck, tests, dependency integrity
+6. `/launchify-production-grade` — score across 12 dimensions, letter grade A+ to F
+
+This is the "do everything" command. Run it when you want a complete production readiness pass.
+
+**Command:** `/launchify-landify-audit`
+
+Same as `/launchify-landify` but in audit-only mode — no code modifications across any step.
+
 ---
 
 ## Security Categories
@@ -397,6 +426,7 @@ See `.launchify/production-branch.md` for the complete branch readiness rules.
 | Business Logic Security | `business-logic` |
 | Incident Response | `incident-response` |
 | Feature Readiness | `feature-readiness` |
+| Compliance & Policies | `compliance` |
 
 ---
 

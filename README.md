@@ -2,9 +2,9 @@
 
 **Production-readiness skill suite for AI coding agents.**
 
-Audit, analyze, and remediate security, infrastructure, architecture, features, and code quality across **Claude Code**, **OpenCode**, and **Codex**.
+Audit, analyze, and remediate security, infrastructure, architecture, features, compliance, and code quality across **Claude Code**, **OpenCode**, and **Codex**.
 
-> 58 commands. 24 security categories. One canonical specification. Identical behavior everywhere.
+> 60 commands. 25 categories. One canonical specification. Identical behavior everywhere.
 
 ---
 
@@ -173,6 +173,50 @@ Classifies each change:
 | ↩️ `REVERT` | Should be reverted |
 
 **Overall verdict:** `MERGE_NOW`, `MERGE_WITH_ORDER`, `PARTIAL_MERGE`, `HOLD_MERGE`, or `REVERT_AND_MERGE`.
+
+---
+
+##   Compliance & Policies
+
+| Command | Description |
+|---|---|
+| `/launchify-compliance` | Audit all legal policies, compliance docs, and regulatory requirements |
+| `/launchify-compliance-audit` | Same audit, no code changes |
+
+Checks for missing or incomplete:
+- **Privacy Policy** — GDPR, CCPA, 20 US state laws, COPPA, app stores
+- **Terms of Service** — liability, governing law, prohibited conduct, indemnification
+- **Cookie Policy & Consent** — cookie inventory, opt-out, "Do Not Sell" links (CCPA)
+- **EULA** — app store requirements, license grant, restrictions
+- **DPA** — GDPR Art. 28, sub-processors, SCCs, international transfers
+- **DMCA Policy** — designated agent, takedown/counter-notification, safe harbor
+- **Acceptable Use Policy** — prohibited conduct, enforcement actions
+- **Security Statement** — encryption, access controls, incident response, bug bounty
+- **Refund Policy** — refund conditions, timeline, subscription cancellation
+- **SLA** — uptime guarantee, support response times, service credits
+- **Accessibility Statement** — WCAG 2.1 AA, VPAT, ADA, European Accessibility Act
+- **AI Disclosures** — transparency, limitations, bias, training data, opt-out
+- **Regulatory** — HIPAA, SOC 2, ISO 27001, PCI DSS, COPPA, FERPA, FedRAMP
+
+> Without these, you risk lawsuits, regulatory fines (up to €20M or 4% revenue under GDPR), lost enterprise deals, and app store removal.
+
+---
+
+##   Landify (Everything)
+
+| Command | Description |
+|---|---|
+| `/launchify-landify` | Run every command: security + cleanup + features + compliance + verify + grade |
+| `/launchify-landify-audit` | Same pipeline, audit-only — no code modifications |
+
+One command for full production readiness. Runs in sequence:
+
+1.   Security audit across all 24 categories
+2.   Cleanup dead code, duplicates, AI debris
+3.   Feature audit and fix
+4.   Compliance audit (policies, legal docs, regulatory)
+5.   Verification (build, lint, typecheck, tests)
+6.   Production grading (12 dimensions, letter grade A+ to F)
 
 ---
 

@@ -36,6 +36,40 @@ Inspect all cloud configurations, IAM policies, network settings, storage config
 - Missing IAM audit logging
 - Missing IAM drift detection
 
+### Cloud Service Enumeration
+- S3 bucket enumeration through `ListBuckets` or `HeadBucket` error responses
+- GCS bucket enumeration through access pattern differences
+- Azure Storage enumeration through account name brute-forcing
+- Lambda/Cloud Functions enumeration through naming patterns
+- Missing error message normalization (different errors for existing vs non-existing resources)
+- Cloud service enumeration through response timing differences
+
+### AWS-Specific
+- Missing AWS Organizations SCPs restricting actions
+- Missing AWS Config rules for compliance
+- Missing GuardDuty threat detection
+- Missing Macie for S3 sensitive data detection
+- Missing Security Hub aggregation
+- Missing VPC Flow Logs analysis
+- Missing CloudTrail insights
+- Missing S3 Block Public Access at account level
+
+### GCP-Specific
+- Missing Organization Policy constraints
+- Missing Security Command Center
+- Missing VPC Service Controls
+- Missing Cloud Armor WAF rules
+- Missing Binary Authorization for containers
+- Missing Confidential Computing for sensitive workloads
+
+### Azure-Specific
+- Missing Azure Defender / Microsoft Defender for Cloud
+- Missing Azure Policy assignments
+- Missing Azure Sentinel/SIEM configuration
+- Missing Azure Key Vault access policies
+- Missing Azure Private Link for services
+- Missing Azure DDoS Protection
+
 ### Storage Security
 - Public S3 buckets (or equivalent: GCP Storage, Azure Blob)
 - Unencrypted storage (missing server-side encryption)

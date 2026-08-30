@@ -34,6 +34,16 @@ Inspect all data protection, privacy controls, PII handling, encryption, data re
 - Sensitive data in telemetry
 - Sensitive data in third-party services
 
+### Cryptographic Key Management
+- Missing key management system (KMS)
+- Encryption keys hardcoded in source
+- Missing envelope encryption for cloud KMS
+- Encryption key access not audited
+- Missing customer-managed encryption keys (CMEK) where required
+- Missing key rotation schedule
+- Missing key versioning
+- Missing key access separation (encryption vs decryption keys)
+
 ### Encryption
 - Unencrypted personal data at rest
 - Missing encryption at rest for sensitive data

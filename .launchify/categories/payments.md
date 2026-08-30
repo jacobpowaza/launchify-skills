@@ -65,6 +65,14 @@ Inspect all payment processing, billing, subscription, pricing, coupon managemen
 ### Webhook Security
 - Unsigned webhooks (no signature verification)
 - Missing webhook signature verification
+- Stripe webhook signature verification not enforced
+- PayPal webhook signature verification not enforced
+- Square webhook signature verification not enforced
+- Missing webhook event type validation (processing unexpected event types)
+- Missing webhook amount/currency validation against expected values
+- Missing idempotency key on payment creation
+- Missing payment status reconciliation schedule
+- Missing refund velocity limits
 - Webhook replay attacks (replaying old webhook events)
 - Missing webhook timestamp validation
 - Missing webhook idempotency (duplicate processing)

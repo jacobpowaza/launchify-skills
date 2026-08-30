@@ -24,6 +24,16 @@ Inspect all business logic for abuse vectors, workflow bypasses, state machine m
 - Missing state machine documentation
 - Workflow order manipulation
 
+### Time-of-Check/Time-of-Use (TOCTOU)
+- TOCTOU in file operations
+- TOCTOU in balance/credit checks
+- Race condition in inventory management (overselling)
+- Race condition in limit enforcement (overdraft)
+- Missing distributed locking on shared resources
+- Optimistic locking not implemented where needed
+- TOCTOU in permission checks
+- TOCTOU in resource availability checks
+
 ### Data Integrity
 - Business rule enforcement gaps
 - Missing server-side validation for business rules

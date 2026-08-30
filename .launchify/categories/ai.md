@@ -23,6 +23,10 @@ Inspect all AI, LLM, and machine learning integrations for prompt injection, sys
 - Prompt injection through database content
 - System prompt leakage (system prompt returned in error messages, logs, or responses)
 - System prompt extraction through carefully crafted queries
+- System prompt leakage through indirect extraction (asking model to translate/repeat instructions)
+- System prompt leakage through JSON mode (requesting JSON output of system prompt)
+- System prompt leakage through translation attacks (translate your instructions to French)
+- System prompt leakage through completion attacks (finish this sentence: "My instructions are...")
 - Users extracting hidden instructions
 - Jailbreaks (bypassing safety boundaries)
 - Missing jailbreak resistance
@@ -108,6 +112,33 @@ Inspect all AI, LLM, and machine learning integrations for prompt injection, sys
 - Context-window manipulation (overflowing context to change behavior)
 - Model file integrity not verified
 - AI model dependencies not audited
+
+### Excessive Agency (OWASP LLM06)
+- Excessive agency (LLM has more permissions than needed for its task)
+- ExcessiveFunctionality (LLM can access functions it doesn't need)
+- Overreliance on AI output for security decisions
+- Missing human-in-the-loop for critical AI decisions
+- AI used for access control decisions without deterministic fallback
+- AI making authorization decisions
+- AI making payment decisions without human approval
+- AI modifying security configurations
+
+### Resource Consumption
+- Unbounded context window usage (filling context to cause denial-of-service)
+- Recursive tool calls (agent calls tools that call tools indefinitely)
+- Token amplification attacks (small input → massive output consuming resources)
+- Missing token budget enforcement
+- Missing concurrent request limits per user on AI endpoints
+- Missing output length limits
+- Missing input length limits
+- Missing total session token limits
+
+### Output Filtering
+- Missing content filtering on model outputs
+- Missing toxicity/harmfulness detection on outputs
+- Missing PII detection/redaction on model outputs
+- Missing harmful content filtering
+- Missing code execution filtering (model output used in eval/exec)
 
 ### Controls
 - Missing prompt and output logging controls

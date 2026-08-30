@@ -141,6 +141,20 @@ Inspect all secrets, credentials, configuration values, and sensitive data acros
 - Default session secrets in framework configurations
 - Default encryption keys in framework configurations
 
+### Cryptographic Failures
+- TLS 1.0 or 1.1 enabled (should require TLS 1.2+)
+- Weak cipher suites (RC4, DES, 3DES, NULL, EXPORT)
+- Weak hash algorithms in non-password contexts (MD5 for file integrity, SHA1 for certificates)
+- Missing certificate transparency logging
+- Self-signed certificates in production
+- Expired TLS certificates
+- Missing OCSP stapling
+- RSA keys < 2048 bits
+- ECDSA keys < 256 bits
+- Missing certificate pinning for critical services
+- Weak key exchange algorithms
+- Missing HSTS with long max-age
+
 ### Secret Management
 - Missing secret management system (Vault, AWS Secrets Manager, etc.)
 - Secrets not rotated since initial deployment

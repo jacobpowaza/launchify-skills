@@ -64,6 +64,20 @@ Inspect all logging configurations, sensitive data in logs, audit logging, monit
 - Audit logs modifiable by administrators
 - Missing time synchronization for log correlation
 
+### SIEM and Correlation
+- Missing threat intelligence feed integration
+- Missing indicators of compromise (IoC) monitoring
+- Missing network traffic anomaly detection
+- Missing user behavior analytics (UBA)
+- Missing deception technology (honeypots/honeytokens)
+- Missing dark web monitoring for leaked credentials
+- Missing log format structured (JSON) for machine parsing
+- Missing correlation ID propagation across services
+- Missing distributed trace context in logs (W3C Trace Context)
+- Missing log-based alerting rules for specific attack patterns
+- Missing PII scrubbing in log pipelines
+- Missing log integrity verification (cryptographic signing)
+
 ### Log Management
 - Missing log retention policy
 - Missing log rotation

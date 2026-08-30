@@ -27,6 +27,12 @@ Inspect monitoring, alerting, observability, and operational visibility across t
 - Missing dependency latency monitoring
 
 ### Security Monitoring
+- Missing threat intelligence feed integration
+- Missing indicators of compromise (IoC) monitoring
+- Missing network traffic anomaly detection
+- Missing user behavior analytics (UBA)
+- Missing deception technology (honeypots/honeytokens)
+- Missing dark web monitoring for leaked credentials
 - Missing authentication monitoring (failed logins, brute force detection)
 - Missing authorization-failure monitoring (access denied events)
 - Missing payment-abuse monitoring (duplicate refunds, price manipulation)

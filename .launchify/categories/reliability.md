@@ -16,6 +16,14 @@ Inspect all reliability controls, recovery mechanisms, resilience patterns, and 
 - Missing backups (no backup configured)
 - Untested restoration (backup exists but never verified)
 - Missing disaster recovery plan
+- Missing recovery time objective (RTO) definition
+- Missing recovery point objective (RPO) definition
+- Missing failover testing schedule
+- Missing chaos engineering practices
+- Missing game day exercises
+- Missing backup verification automation
+- Missing cross-region replication
+- Missing immutable backups (WORM storage)
 - Missing failover mechanism
 - Missing regional recovery
 - Missing restore testing schedule

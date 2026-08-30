@@ -52,6 +52,15 @@ Inspect all web application security controls including XSS, CSRF, injection, fi
 - Expression Language injection
 - Header injection (CRLF injection)
 - Unsafe deserialization (pickle, yaml.load, eval)
+- Java deserialization (ObjectInputStream.readObject) with gadget chains
+- PHP `unserialize()` with object injection
+- .NET `BinaryFormatter` deserialization
+- YAML `yaml.load()` without `Loader=SafeLoader`
+- Pickle/Rickle deserialization of untrusted data
+- Marshal (Ruby) deserialization
+- JSON deserialization with type confusion
+- XML deserialization with entity expansion
+- MessagePack/CBOR deserialization of untrusted payloads
 - Prototype pollution (Object.assign, merge, deep merge with user input)
 - Prototype pollution leading to XSS or RCE
 
@@ -77,6 +86,11 @@ Inspect all web application security controls including XSS, CSRF, injection, fi
 - SSRF through file import (SVG, XML)
 - SSRF through PDF generation
 - SSRF through HTML-to-image conversion
+- SSRF through AI web fetch tools (OpenAI web browsing, LangChain web loaders)
+- SSRF through server-side fetch/HTTP client libraries
+- SSRF through DNS rebinding (DNS resolves to internal IP after initial check)
+- SSRF through URL parsing inconsistencies (e.g., `http://attacker.com@internal-host`)
+- SSRF through URL canonicalization bypass
 - SSRF bypass techniques (IP encoding, DNS rebinding, IPv6)
 - SSRF to internal databases
 - SSRF to internal message queues

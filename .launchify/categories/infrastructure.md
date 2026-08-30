@@ -31,6 +31,16 @@ Inspect all infrastructure-as-code, deployment configurations, container securit
 - Unrestricted outbound access from workloads
 - Network paths that allow SSRF to reach sensitive services
 
+### Container Image Integrity
+- Base image provenance not verified (Docker Hub official vs community)
+- Missing distroless/minimal base images
+- Missing vulnerability scan gate (critical/high CVEs block deployment)
+- Container registry access not restricted
+- Missing image retention policies
+- Missing image quarantine process before production
+- Container attestation (SLSA) not verified
+- Missing runtime container monitoring (Falco, Sysdig)
+
 ### Container Security
 - Containers running as root
 - Privileged containers
@@ -55,6 +65,20 @@ Inspect all infrastructure-as-code, deployment configurations, container securit
 - Container escape risks
 - Insecure registries
 - Public container images containing sensitive data
+
+### Kubernetes Hardening
+- Missing Pod Security Admission (PSA) enforcement mode
+- Missing OPA Gatekeeper / Kyverno policies
+- Missing seccomp runtime default profile
+- Missing AppArmor profile enforcement
+- Missing Kubernetes audit policy
+- Missing etcd encryption at rest
+- Missing API server audit logging
+- Missing kubelet authentication and authorization
+- Missing controller-manager RBAC
+- Missing scheduler RBAC
+- Missing kube-proxy configuration review
+- Missing CoreDNS configuration review
 
 ### Kubernetes Security
 - Kubernetes misconfiguration

@@ -22,6 +22,21 @@ Inspect all dependencies, package manifests, lockfiles, transitive dependencies,
 - Dependencies with high severity CVEs
 - Dependencies with known exploit code available
 
+### Install Script Risk
+- `postinstall`/`preinstall` scripts in dependencies that execute arbitrary code
+- `prepare` scripts in dependencies executing during install
+- `node-gyp` build scripts executing arbitrary code
+- `setup.py`/`pyproject.toml` install hooks executing arbitrary code
+- Rust `build.rs` scripts executing arbitrary code
+- Missing `.npmignore` or `MANIFEST.in` allowing sensitive files into published packages
+- Missing `publishConfig` restricting where packages can be published
+- Go module replace directives pointing to external repositories
+- Private package scope not claimed on public registries (npm, PyPI, Cargo)
+- `.npmrc` or `pip.conf` not configured to prefer private registry
+- Missing signature verification for downloaded packages
+- Package registry not pinned (using public instead of private/mirror)
+- Missing provenance attestation for built artifacts
+
 ### Supply Chain
 - Malicious packages (typosquatting, dependency confusion)
 - Unpinned dependencies (no version constraint)

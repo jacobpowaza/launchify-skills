@@ -42,6 +42,22 @@ Inspect all CI/CD pipelines, build configurations, deployment automation, and CI
 - Secrets in CI coverage reports
 - Secrets in CI artifact uploads
 
+### Supply Chain Integrity
+- Missing Sigstore/Cosign for container image signing
+- Missing SLSA (Supply-chain Levels for Software Artifacts) provenance
+- Missing SBOM attestation (SPDX, CycloneDX)
+- Missing build provenance (SLSA Level 2+)
+- Reproducible builds not verified
+- Build environment not attested (SLSA Build L3)
+- Missing Gitsign for commit signing verification
+- GitHub Actions with `pull_request_target` trigger receiving secrets
+- GitLab CI `rules:if` allowing fork access to protected variables
+- Missing CODEOWNERS for CI/CD configuration files
+- Self-hosted runners without ephemeral configuration
+- Missing runner isolation between jobs
+- Cached dependencies not integrity-verified
+- CI/CD platform permission model not audited
+
 ### Release Security
 - Missing provenance
 - Missing release approvals

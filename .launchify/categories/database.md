@@ -65,6 +65,18 @@ Inspect all database configurations, queries, data access patterns, migrations, 
 - Tenant ID not included in RLS policies
 - RLS policies not tested
 
+### Cryptographic Enforcement
+- Database connections not enforcing TLS (rejecting unencrypted connections)
+- Missing mutual TLS (mTLS) for service-to-database auth
+- Redis/Memcached connections not encrypted in transit
+- Elasticsearch/OpenSearch not enforcing TLS
+- Kafka/RabbitMQ message queues not encrypted in transit
+- Database backups not encrypted at rest
+- Missing field-level encryption for PII columns
+- Missing envelope encryption for cloud KMS
+- Encryption key access not audited
+- Missing customer-managed encryption keys (CMEK) where required
+
 ### Data Protection
 - Sensitive data exposure in database responses
 - Exposed database backups

@@ -51,6 +51,14 @@ Inspect code quality, security process maturity, testing practices, and developm
 - Missing dependency vulnerability monitoring
 - Missing CVE tracking
 
+### DevSecOps Maturity
+- Missing secure coding training records
+- Missing role-based security training
+- Missing security awareness for developers
+- Missing DevSecOps maturity assessment
+- Missing security champions program
+- Missing secure coding standards documentation
+
 ### Process Maturity
 - Missing secure design review
 - Missing architecture review

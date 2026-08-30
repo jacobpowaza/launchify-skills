@@ -130,6 +130,16 @@ Inspect all API endpoints, request/response handling, validation, rate limiting,
 - Missing API version controls
 - Gateway checks that fail open
 
+### Unsafe API Consumption
+- Consuming third-party API responses without validation (trusting external API data in business logic)
+- SSRF through third-party webhook callback URLs
+- Unsafe deserialization of third-party API responses (YAML, pickle, XML)
+- Missing timeout/circuit breaker on outbound API calls
+- Third-party API response used in SQL query construction
+- Third-party API response rendered in HTML without sanitization
+- Missing validation of third-party webhook source IP/signature
+- Third-party API response used in authorization decisions
+
 ### Consistency
 - Inconsistent error handling across endpoints
 - Missing API contract tests

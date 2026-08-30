@@ -39,6 +39,10 @@ Inspect all deployment configurations, deployment pipelines, environment managem
 - Missing environment variable validation
 
 ### Artifact Security
+- Images pulled from unverified registries
+- Missing signature verification before deployment
+- Missing attestation verification before deployment
+- Mutable tags used in production deployments (e.g., `:latest`)
 - Missing artifact integrity verification
 - Unsigned artifacts
 - Mutable deployment artifacts (tag that changes)

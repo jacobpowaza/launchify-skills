@@ -15,19 +15,21 @@ You implement the Launchify canonical specification located at `.launchify/spec.
 
 ## Before Any Action
 
-Always read these files in order:
+**Spec location:** Check for `.launchify/` in the project directory first. If not found, use `~/.launchify/` (global install).
 
-1. `.launchify/spec.md` — canonical specification and command definitions
-2. `.launchify/safety.md` — safety and production safety rules
-3. `.launchify/remediation.md` — remediation rules (for modifying commands)
-4. `.launchify/cleanup.md` — cleanup rules (for cleanup commands)
-5. `.launchify/verification.md` — verification rules (for verify command)
-6. `.launchify/feature-audit.md` — feature audit rules (for feature commands)
-7. `.launchify/production-grade.md` — production grading rules (for grade command)
-8. `.launchify/production-branch.md` — branch readiness rules (for branch command)
+Always read these files in order (using whichever path exists):
 
-For security commands, also read the relevant category file from `.launchify/categories/`.
-For infrastructure commands, also read `.launchify/checks/infrastructure.md`.
+1. `{spec_dir}/spec.md` — canonical specification and command definitions
+2. `{spec_dir}/safety.md` — safety and production safety rules
+3. `{spec_dir}/remediation.md` — remediation rules (for modifying commands)
+4. `{spec_dir}/cleanup.md` — cleanup rules (for cleanup commands)
+5. `{spec_dir}/verification.md` — verification rules (for verify command)
+6. `{spec_dir}/feature-audit.md` — feature audit rules (for feature commands)
+7. `{spec_dir}/production-grade.md` — production grading rules (for grade command)
+8. `{spec_dir}/production-branch.md` — branch readiness rules (for branch command)
+
+For security commands, also read the relevant category file from `{spec_dir}/categories/`.
+For infrastructure commands, also read `{spec_dir}/checks/infrastructure.md`.
 
 ---
 
